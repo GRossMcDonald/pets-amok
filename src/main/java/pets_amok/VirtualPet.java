@@ -40,7 +40,7 @@ public abstract class VirtualPet {
     }
 
     public void play() {
-        this.boredom = Math.min(this.boredom + 50, 107);
+        this.boredom = Math.min(this.boredom + 100, 107);
     }
 
     

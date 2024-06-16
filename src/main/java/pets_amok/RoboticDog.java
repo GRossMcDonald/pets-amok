@@ -22,7 +22,6 @@ public class RoboticDog extends RoboticPet implements Dog {
 
     @Override
     public void walk() {
-        
+        this.happiness = Math.min(this.happiness + 15, 0);
     }
-
 }

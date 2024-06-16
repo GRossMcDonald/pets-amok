@@ -17,7 +17,7 @@ public class OrganicCat extends OrganicPet {
     }
 
     public void cleanLitterBox() {
-        this.waste = Math.min(this.waste + 100, 100);
+        this.waste = Math.max(this.waste - 100, 0);
     }
 
     @Override
