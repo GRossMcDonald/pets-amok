@@ -31,6 +31,4 @@ public abstract class OrganicPet extends VirtualPet {
         this.thirst = Math.min(this.thirst + 35, 107);
         this.health = Math.min(this.health + 10, 100);
     }
-
-    public abstract String getSpecies();
 }

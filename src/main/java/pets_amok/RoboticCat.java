@@ -15,4 +15,9 @@ public class RoboticCat extends RoboticPet implements Cat {
         return "Robotic";
     }
 
+    @Override
+    public String getSpecies() {
+        return "Cat";
+    }
+
 }

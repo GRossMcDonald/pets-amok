@@ -16,6 +16,11 @@ public class RoboticDog extends RoboticPet implements Dog {
     }
 
     @Override
+    public String getSpecies() {
+        return "Dog";
+    }
+
+    @Override
     public void walk() {
         
     }

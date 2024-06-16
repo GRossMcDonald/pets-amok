@@ -45,6 +45,7 @@ public abstract class VirtualPet {
 
     
     public abstract String getType();
+    public abstract String getSpecies();
 
     @Override
     public String toString() {
