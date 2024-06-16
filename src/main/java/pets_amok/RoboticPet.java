@@ -15,11 +15,11 @@ public abstract class RoboticPet extends VirtualPet {
     }
 
     public int getOil() {
-        return oil;
+        return this.oil;
     }
 
     public int getMaintain() {
-        return maintain;
+        return this.maintain;
     }
 
     public void oil() {

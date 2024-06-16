@@ -15,11 +15,11 @@ public abstract class OrganicPet extends VirtualPet {
     }
 
     public int getHunger() {
-        return hunger;
+        return this.hunger;
     }
 
     public int getThirst() {
-        return thirst;
+        return this.thirst;
     }
 
     public void feed() {
@@ -31,4 +31,6 @@ public abstract class OrganicPet extends VirtualPet {
         this.thirst = Math.min(this.thirst + 35, 107);
         this.health = Math.min(this.health + 10, 100);
     }
+
+    public abstract String getSpecies();
 }

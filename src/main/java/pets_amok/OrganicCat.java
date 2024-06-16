@@ -13,11 +13,20 @@ public class OrganicCat extends OrganicPet {
     }
 
     public int getWaste() {
-        return waste;
+        return this.waste;
+    }
+
+    public void cleanLitterBox() {
+        this.waste = Math.min(this.waste + 100, 100);
     }
 
     @Override
     public String getType() {
         return "Organic";
+    }
+
+    @Override
+    public String getSpecies() {
+        return "Cat";
     }
 }

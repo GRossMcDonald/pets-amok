@@ -50,6 +50,24 @@ public class VirtualPetShelter {
         }
     }
 
+    public void listOrganicDogs() {
+        System.out.println("Organic dogs in the shelter:");
+        for (VirtualPet pet : this.pets) {
+            if (pet.getType().equals("Organic") && pet.getSpecies().equals("Dog")) {
+                System.out.println(pet);
+            }
+        }
+    }
+
+    public void listOrganicCats() {
+        System.out.println("Organic cats in the shelter:");
+        for (VirtualPet pet : this.pets) {
+            if (pet.getType().equals("Organic") && pet.getSpecies().equals("Cat")) {
+                System.out.println(pet);
+            }
+        }
+    }
+
     public void feedPets() {
         for (VirtualPet pet : this.pets) {
             if (pet.getType().equals("Organic")) {
