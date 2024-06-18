@@ -23,12 +23,16 @@ public class VirtualPetShelterApp {
             shelter.displayOrganicCatStats();
             System.out.println();
 
+            System.out.println("Organic Cats Litter Box Fullness:");
+            System.out.println(shelter.litterBox());
+            System.out.println();
+
             System.out.println("Robotic Dog Status:");
             shelter.displayRoboticDogStats();
             System.out.println();
 
             System.out.println("Robotic Cat Status:");
-            shelter.displayRoboticicCatStats();
+            shelter.displayRoboticCatStats();
             System.out.println();
 
             System.out.println("Press (1) to feed organic pets.");
@@ -38,6 +42,9 @@ public class VirtualPetShelterApp {
             System.out.println("Press (5) to admit a new pet.");
             System.out.println("Press (6) to clean an organic dog's cage.");
             System.out.println("Press (7) to walk all dogs.");
+            System.out.println("Press (8) to oil all robotic pets.");
+            System.out.println("Press (9) to perform maintenance on all robotic pets.");
+            System.out.println("Press (10) to clean the organic cat litter box.");
 
             int userInput = input.nextInt();
             input.nextLine();
@@ -171,10 +178,13 @@ public class VirtualPetShelterApp {
                 System.out.println();
             } else if (userInput == 8) {
                 shelter.oilPets();
-                System.out.println("The robot pets joint health has improved.");
+                System.out.println("The robotic pets joint health has improved.");
             } else if (userInput == 9) {
                 shelter.maintainPets();
                 System.out.println("All robotic pets have been examined and fixed.");
+            } else if (userInput == 10) {
+                shelter.cleanLitterBox();
+                System.out.println("The litter box has been cleaned.");
             } else if (userInput == 12) {
                 break;
             }

@@ -149,6 +149,26 @@ public class VirtualPetShelter {
         return false;
     }
 
+    public int litterBox() {
+        int totalWaste = 0;
+        for (VirtualPet pet : this.pets) {
+            if (pet.getType().equals("Organic") && pet.getSpecies().equals("Cat")) {
+                OrganicCat organicCat = (OrganicCat) pet;
+                totalWaste += organicCat.getWaste();
+            }
+        }
+        return totalWaste;
+    }
+
+    public void cleanLitterBox() {
+        for (VirtualPet pet : this.pets) {
+            if (pet.getType().equals("Organic") && pet.getSpecies().equals("Cat")) {
+                OrganicCat organicCat = (OrganicCat) pet;
+                organicCat.cleanLitterBox();
+            }
+        }
+    }
+
     public void walkDogs() {
         for (VirtualPet pet : this.pets) {
             if (pet.getSpecies().equals("Dog")) {
@@ -287,7 +307,7 @@ public class VirtualPetShelter {
         }
     }
 
-    public void displayRoboticicCatStats() {
+    public void displayRoboticCatStats() {
         int longestNameLength = 0;
         for (VirtualPet pet : pets) {
             if (pet.getType().equals("Robotic") && pet.getSpecies().equals("Cat")) {

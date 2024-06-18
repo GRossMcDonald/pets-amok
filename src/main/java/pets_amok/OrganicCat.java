@@ -24,7 +24,7 @@ public class OrganicCat extends OrganicPet {
         this.hunger = Math.max(this.hunger - 7, 0);
         this.thirst = Math.max(this.thirst - 7, 0);
         this.boredom = Math.max(this.boredom - 7, 0);
-        this.waste = Math.min(this.waste + 2, 100);
+        this.waste = Math.min(this.waste + 2, 102);
     }
 
     @Override
