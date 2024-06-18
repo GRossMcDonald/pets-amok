@@ -96,6 +96,36 @@ public class VirtualPetShelter {
         }
     }
 
+    
+    public void oilPets() {
+        for (VirtualPet pet : this.pets) {
+            if (pet.getType().equals("Robotic")) {
+                if (pet.getSpecies().equals("Cat")) {
+                    RoboticCat roboticCat = (RoboticCat) pet;
+                    roboticCat.oil();
+                } else if (pet.getSpecies().equals("Dog")) {
+                    RoboticDog roboticDog = (RoboticDog) pet;
+                    roboticDog.oil();
+                }
+            }
+        }
+    }
+
+        
+    public void maintainPets() {
+        for (VirtualPet pet : this.pets) {
+            if (pet.getType().equals("Robotic")) {
+                if (pet.getSpecies().equals("Cat")) {
+                    RoboticCat roboticCat = (RoboticCat) pet;
+                    roboticCat.maintain();
+                } else if (pet.getSpecies().equals("Dog")) {
+                    RoboticDog roboticDog = (RoboticDog) pet;
+                    roboticDog.maintain();
+                }
+            }
+        }
+    }
+
     public boolean playWithPet(String name) {
         for (VirtualPet pet : pets) {
             if (pet.getName().equalsIgnoreCase(name)) {
@@ -106,12 +136,62 @@ public class VirtualPetShelter {
         return false;
     }
 
+    public boolean cleanDogCage(String name) {
+        for (VirtualPet pet : this.pets) {
+            if (pet.getType().equals("Organic") && pet.getSpecies().equals("Dog")) {
+                OrganicDog organicDog = (OrganicDog) pet;
+                if (organicDog.getName().equalsIgnoreCase(name)) {
+                    organicDog.cleanCage();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void walkDogs() {
+        for (VirtualPet pet : this.pets) {
+            if (pet.getSpecies().equals("Dog")) {
+                if (pet.getType().equals("Organic")) {
+                    OrganicDog organicDog = (OrganicDog) pet;
+                    organicDog.walk();
+                } else if (pet.getType().equals("Robotic")) {
+                    RoboticDog roboticDog = (RoboticDog) pet;
+                    roboticDog.walk();
+                }
+            }
+        }
+    }
+
     public void petAdopted(VirtualPet pet) {
         pets.remove(pet);
     }
 
     public void petAdmitted(VirtualPet pet) {
         pets.add(pet);
+    }
+
+    public void tickAll() {
+        for (VirtualPet pet : this.pets) {
+            if (pet.getType().equals("Organic")) {
+                if (pet.getSpecies().equals("Cat")) {
+                    OrganicCat organicCat = (OrganicCat) pet;
+                    organicCat.organicCatTick();
+                } else if (pet.getSpecies().equals("Dog")) {
+                    OrganicDog organicDog = (OrganicDog) pet;
+                    organicDog.soiledCage();
+                    organicDog.organicDogTick();
+                }
+            } else if (pet.getType().equals("Robotic")) {
+                if (pet.getSpecies().equals("Cat")) {
+                    RoboticCat roboticCat = (RoboticCat) pet;
+                    roboticCat.roboticCatTick();
+                } else if (pet.getSpecies().equals("Dog")) {
+                    RoboticDog roboticDog = (RoboticDog) pet;
+                    roboticDog.roboticDogTick();
+                }
+            }
+        }
     }
 
     public void displayOrganicDogStats() {
@@ -173,6 +253,66 @@ public class VirtualPetShelter {
                         organicCat.getHunger(),
                         organicCat.getThirst(),
                         organicCat.getWaste());
+            }
+        }
+    }
+
+    public void displayRoboticDogStats() {
+        int longestNameLength = 0;
+        for (VirtualPet pet : pets) {
+            if (pet.getType().equals("Robotic") && pet.getSpecies().equals("Dog")) {
+                RoboticDog organicDog = (RoboticDog) pet;
+                if (organicDog.getName().length() > longestNameLength) {
+                    longestNameLength = organicDog.getName().length();
+                }
+            }
+        }
+        System.out.printf("%-" + (longestNameLength + 2)
+                + "s|Happiness |Health |Boredom |Oil  |Maintain%n", "Name");
+        System.out.printf(
+                "%-" + (longestNameLength + 2)
+                        + "s|----------|-------|--------|-----|---------%n",
+                "-".repeat(longestNameLength + 2));
+        for (VirtualPet pet : pets) {
+            if (pet.getType().equals("Robotic") && pet.getSpecies().equals("Dog")) {
+                RoboticDog organicDog = (RoboticDog) pet;
+                System.out.printf("%-" + (longestNameLength + 2) + "s|%-10d|%-7d|%-8d|%-5d|%-9d%n",
+                        organicDog.getName(),
+                        organicDog.getHappiness(),
+                        organicDog.getHealth(),
+                        organicDog.getBoredom(),
+                        organicDog.getOil(),
+                        organicDog.getMaintain());
+            }
+        }
+    }
+
+    public void displayRoboticicCatStats() {
+        int longestNameLength = 0;
+        for (VirtualPet pet : pets) {
+            if (pet.getType().equals("Robotic") && pet.getSpecies().equals("Cat")) {
+                RoboticCat roboticCat = (RoboticCat) pet;
+                if (roboticCat.getName().length() > longestNameLength) {
+                    longestNameLength = roboticCat.getName().length();
+                }
+            }
+        }
+        System.out.printf("%-" + (longestNameLength + 2)
+                + "s|Happiness |Health |Boredom |Oil  |Maintain%n", "Name");
+        System.out.printf(
+                "%-" + (longestNameLength + 2)
+                        + "s|----------|-------|--------|-----|---------%n",
+                "-".repeat(longestNameLength + 2));
+        for (VirtualPet pet : pets) {
+            if (pet.getType().equals("Robotic") && pet.getSpecies().equals("Cat")) {
+                RoboticCat roboticCat = (RoboticCat) pet;
+                System.out.printf("%-" + (longestNameLength + 2) + "s|%-10d|%-7d|%-8d|%-5d|%-9d%n",
+                roboticCat.getName(),
+                roboticCat.getHappiness(),
+                roboticCat.getHealth(),
+                roboticCat.getBoredom(),
+                roboticCat.getOil(),
+                roboticCat.getMaintain());
             }
         }
     }

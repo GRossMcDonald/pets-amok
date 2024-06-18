@@ -10,6 +10,12 @@ public class RoboticDog extends RoboticPet implements Dog {
         this(name, description, 50, 50, 100, 75, 75);
     }
 
+    public void roboticDogTick() {
+        this.oil = Math.max(this.oil - 7, 0);
+        this.maintain = Math.max(this.maintain - 7, 0);
+        this.boredom = Math.max(this.boredom - 7, 0);
+    }
+
     @Override
     public String getType() {
         return "Robotic";
@@ -22,6 +28,6 @@ public class RoboticDog extends RoboticPet implements Dog {
 
     @Override
     public void walk() {
-        this.happiness = Math.min(this.happiness + 15, 0);
+        this.happiness = Math.min(this.happiness + 15, 100);
     }
 }

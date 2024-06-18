@@ -10,6 +10,12 @@ public class RoboticCat extends RoboticPet implements Cat {
         this(name, description, 50, 50, 100, 75, 75);
     }
 
+    public void roboticCatTick() {
+        this.oil = Math.max(this.oil - 7, 0);
+        this.maintain = Math.max(this.maintain - 7, 0);
+        this.boredom = Math.max(this.boredom - 7, 0);
+    }
+
     @Override
     public String getType() {
         return "Robotic";

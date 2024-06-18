@@ -9,7 +9,7 @@ public class OrganicCat extends OrganicPet {
     }
 
     public OrganicCat(String name, String description) {
-        this(name, description, 50, 50, 100, 75, 75, 100);
+        this(name, description, 50, 50, 100, 75, 75, 0);
     }
 
     public int getWaste() {
@@ -18,6 +18,13 @@ public class OrganicCat extends OrganicPet {
 
     public void cleanLitterBox() {
         this.waste = Math.max(this.waste - 100, 0);
+    }
+
+    public void organicCatTick() { // WHAT TO DO ABOUT SINGULAR LITTER BOX
+        this.hunger = Math.max(this.hunger - 7, 0);
+        this.thirst = Math.max(this.thirst - 7, 0);
+        this.boredom = Math.max(this.boredom - 7, 0);
+        this.waste = Math.min(this.waste + 2, 100);
     }
 
     @Override

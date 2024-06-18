@@ -23,11 +23,21 @@ public class VirtualPetShelterApp {
             shelter.displayOrganicCatStats();
             System.out.println();
 
+            System.out.println("Robotic Dog Status:");
+            shelter.displayRoboticDogStats();
+            System.out.println();
+
+            System.out.println("Robotic Cat Status:");
+            shelter.displayRoboticicCatStats();
+            System.out.println();
+
             System.out.println("Press (1) to feed organic pets.");
             System.out.println("Press (2) to water organic pets.");
             System.out.println("Press (3) to play with a pet.");
             System.out.println("Press (4) to adopt a pet from the shelter.");
             System.out.println("Press (5) to admit a new pet.");
+            System.out.println("Press (6) to clean an organic dog's cage.");
+            System.out.println("Press (7) to walk all dogs.");
 
             int userInput = input.nextInt();
             input.nextLine();
@@ -142,9 +152,33 @@ public class VirtualPetShelterApp {
                     System.out.println("Invalid input.");
                     continue;
                 }
-            }else if (userInput == 8) {
+            } else if (userInput == 6) {
+                while (true) {
+                    System.out.println("Which organic dog cage would you like to clean?");
+                    String chosenPet = input.nextLine();
+                    System.out.println();
+                    if (shelter.cleanDogCage(chosenPet)) {
+                        System.out.println("Okay, you clean " + chosenPet + "'s cage.");
+                        System.out.println();
+                        break;
+                    } else {
+                        System.out.println("No organic dogs in this shelter go by that name. You idiot. Try again.");
+                    }
+                }
+            } else if (userInput == 7) {
+                shelter.walkDogs();
+                System.out.println("You have taken your dogs on a walk.");
+                System.out.println();
+            } else if (userInput == 8) {
+                shelter.oilPets();
+                System.out.println("The robot pets joint health has improved.");
+            } else if (userInput == 9) {
+                shelter.maintainPets();
+                System.out.println("All robotic pets have been examined and fixed.");
+            } else if (userInput == 12) {
                 break;
             }
+            shelter.tickAll();
 
         }
         input.close();

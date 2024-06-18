@@ -33,89 +33,70 @@ public class OrganicDog extends OrganicPet implements Dog {
         if (dirtiness > .90) {
             if (pooNeediness >= 80) {
                 dirtyAccumulation = 20;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 60) {
                 dirtyAccumulation = 15;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 40) {
                 dirtyAccumulation = 12;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 20) {
                 dirtyAccumulation = 8;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
-            } else if (pooNeediness < 20) {
+            } else {
                 dirtyAccumulation = 6;
-                Math.min(this.cleanliness - dirtyAccumulation, 0);
             }
         } else if (dirtiness > .60) {
             if (pooNeediness >= 80) {
                 dirtyAccumulation = 15;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 60) {
                 dirtyAccumulation = 11;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 40) {
                 dirtyAccumulation = 8;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 20) {
                 dirtyAccumulation = 4;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
-            } else if (pooNeediness < 20) {
+            } else {
                 dirtyAccumulation = 2;
-                Math.min(this.cleanliness - dirtyAccumulation, 0);
             }
         } else if (dirtiness > .40) {
             if (pooNeediness >= 80) {
                 dirtyAccumulation = 14;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 60) {
                 dirtyAccumulation = 10;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 40) {
                 dirtyAccumulation = 6;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 20) {
                 dirtyAccumulation = 3;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
-            } else if (pooNeediness < 20) {
+            } else {
                 dirtyAccumulation = 1;
-                Math.min(this.cleanliness - dirtyAccumulation, 0);
             }
         } else if (dirtiness > .15) {
             if (pooNeediness >= 80) {
                 dirtyAccumulation = 12;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 60) {
                 dirtyAccumulation = 9;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 40) {
                 dirtyAccumulation = 5;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 20) {
                 dirtyAccumulation = 2;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
-            } else if (pooNeediness < 20) {
+            } else {
                 dirtyAccumulation = 1;
-                Math.min(this.cleanliness - dirtyAccumulation, 0);
             }
         } else {
             if (pooNeediness >= 80) {
                 dirtyAccumulation = 8;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 60) {
                 dirtyAccumulation = 5;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
             } else if (pooNeediness >= 40) {
                 dirtyAccumulation = 2;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
-            } else if (pooNeediness >= 20) {
+            } else {
                 dirtyAccumulation = 0;
-                Math.max(this.cleanliness - dirtyAccumulation, 0);
-            } else if (pooNeediness < 20) {
-                dirtyAccumulation = 0;
-                Math.min(this.cleanliness - dirtyAccumulation, 0);
             }
         }
+        this.cleanliness = Math.max(this.cleanliness - dirtyAccumulation, 0);
+    }
+
+    public void organicDogTick() {
+        this.hunger = Math.max(this.hunger - 7, 0);
+        this.thirst = Math.max(this.thirst - 7, 0);
+        this.boredom = Math.max(this.boredom - 7, 0);
+        this.pooNeediness = Math.min(this.pooNeediness + 5, 100);
     }
 
     @Override
@@ -130,8 +111,8 @@ public class OrganicDog extends OrganicPet implements Dog {
 
     @Override
     public void walk() {
-        this.pooNeediness = Math.min(this.pooNeediness - 50, 0);
-        this.happiness = Math.min(this.happiness + 15, 0);
+        this.pooNeediness = Math.max(this.pooNeediness - 50, 0);
+        this.happiness = Math.min(this.happiness + 15, 100);
     }
 
 }
