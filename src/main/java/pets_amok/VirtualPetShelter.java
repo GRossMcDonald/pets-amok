@@ -160,6 +160,17 @@ public class VirtualPetShelter {
         return totalWaste;
     }
 
+    public void litterBoxCheck() {
+        if (litterBox() >= 20) {
+            for (VirtualPet pet : this.pets) {
+                if (pet.getType().equals("Organic") && pet.getSpecies().equals("Cat")) {
+                    OrganicCat organicCat = (OrganicCat) pet;
+                    organicCat.sicknessOutbreak();
+                }
+            }
+        }
+    }
+
     public void cleanLitterBox() {
         for (VirtualPet pet : this.pets) {
             if (pet.getType().equals("Organic") && pet.getSpecies().equals("Cat")) {
@@ -196,18 +207,30 @@ public class VirtualPetShelter {
             if (pet.getType().equals("Organic")) {
                 if (pet.getSpecies().equals("Cat")) {
                     OrganicCat organicCat = (OrganicCat) pet;
+                    organicCat.poorHealthCheck();
+                    organicCat.sadnessIndex();
+                    organicCat.happinessIndex();
                     organicCat.organicCatTick();
                 } else if (pet.getSpecies().equals("Dog")) {
                     OrganicDog organicDog = (OrganicDog) pet;
+                    organicDog.poorHealthCheck();
                     organicDog.soiledCage();
+                    organicDog.sadnessIndex();
+                    organicDog.happinessIndex();
                     organicDog.organicDogTick();
                 }
             } else if (pet.getType().equals("Robotic")) {
                 if (pet.getSpecies().equals("Cat")) {
                     RoboticCat roboticCat = (RoboticCat) pet;
+                    roboticCat.poorHealthCheck();
+                    roboticCat.sadnessIndex();
+                    roboticCat.happinessIndex();
                     roboticCat.roboticCatTick();
                 } else if (pet.getSpecies().equals("Dog")) {
                     RoboticDog roboticDog = (RoboticDog) pet;
+                    roboticDog.poorHealthCheck();
+                    roboticDog.sadnessIndex();
+                    roboticDog.happinessIndex();
                     roboticDog.roboticDogTick();
                 }
             }

@@ -45,6 +45,7 @@ public class VirtualPetShelterApp {
             System.out.println("Press (8) to oil all robotic pets.");
             System.out.println("Press (9) to perform maintenance on all robotic pets.");
             System.out.println("Press (10) to clean the organic cat litter box.");
+            System.out.println("Press (11) to exit game.");
 
             int userInput = input.nextInt();
             input.nextLine();
@@ -185,9 +186,10 @@ public class VirtualPetShelterApp {
             } else if (userInput == 10) {
                 shelter.cleanLitterBox();
                 System.out.println("The litter box has been cleaned.");
-            } else if (userInput == 12) {
+            } else if (userInput == 11) {
                 break;
             }
+            shelter.litterBoxCheck();
             shelter.tickAll();
 
         }
