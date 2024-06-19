@@ -149,7 +149,7 @@ public class VirtualPetShelter {
         return false;
     }
 
-    public int litterBox() {
+    public int totalingLitterBox() {
         int totalWaste = 0;
         for (VirtualPet pet : this.pets) {
             if (pet.getType().equals("Organic") && pet.getSpecies().equals("Cat")) {
@@ -161,7 +161,7 @@ public class VirtualPetShelter {
     }
 
     public void litterBoxCheck() {
-        if (litterBox() >= 20) {
+        if (totalingLitterBox() >= 20) {
             for (VirtualPet pet : this.pets) {
                 if (pet.getType().equals("Organic") && pet.getSpecies().equals("Cat")) {
                     OrganicCat organicCat = (OrganicCat) pet;

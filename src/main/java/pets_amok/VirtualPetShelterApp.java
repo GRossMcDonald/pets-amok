@@ -24,7 +24,7 @@ public class VirtualPetShelterApp {
             System.out.println();
 
             System.out.println("Organic Cats Litter Box Fullness:");
-            System.out.println(shelter.litterBox());
+            System.out.println(shelter.totalingLitterBox());
             System.out.println();
 
             System.out.println("Robotic Dog Status:");
