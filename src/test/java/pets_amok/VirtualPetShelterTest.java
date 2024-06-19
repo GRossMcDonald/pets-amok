@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class VirtualPetTest {
+public class VirtualPetShelterTest {
     private VirtualPetShelter shelter;
 
     @BeforeEach
@@ -53,7 +53,7 @@ public class VirtualPetTest {
     @Test
     public void testOilPets() {
         RoboticDog dog = new RoboticDog("Tank", "Large robot dog.");
-        RoboticCat cat = new RoboticCat("Zypher", "A cat as quick as an arrow.");
+        RoboticCat cat = new RoboticCat("Zypher", "A robot cat as quick as an arrow.");
         shelter.petAdmitted(dog);
         shelter.petAdmitted(cat);
 
@@ -66,7 +66,7 @@ public class VirtualPetTest {
     @Test
     public void testMaintainPets() {
         RoboticDog dog = new RoboticDog("Tank", "Large robot dog.");
-        RoboticCat cat = new RoboticCat("Zypher", "A cat as quick as an arrow.");
+        RoboticCat cat = new RoboticCat("Zypher", "A robot cat as quick as an arrow.");
         shelter.petAdmitted(dog);
         shelter.petAdmitted(cat);
 
