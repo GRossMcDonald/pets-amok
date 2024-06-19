@@ -96,9 +96,9 @@ public class OrganicDog extends OrganicPet implements Dog {
         int poorCondition = 0;
         if (this.hunger < 25 && this.thirst < 25 && this.cleanliness < 25) {
             poorCondition = 15;
-        }else if (this.hunger < 50 && this.thirst < 50 && this.cleanliness < 50) {
+        } else if (this.hunger < 50 && this.thirst < 50 && this.cleanliness < 50) {
             poorCondition = 5;
-        }else if (this.hunger == 0 || this.thirst == 0 || this.cleanliness == 0) {
+        } else if (this.hunger == 0 || this.thirst == 0 || this.cleanliness == 0) {
             poorCondition = 10;
         } else if (this.hunger < 25 || this.thirst < 25 || this.cleanliness < 25) {
             poorCondition = 5;
@@ -147,7 +147,7 @@ public class OrganicDog extends OrganicPet implements Dog {
 
     @Override
     public void walk() {
-        this.pooNeediness = Math.max(this.pooNeediness - 50, 0);
+        this.pooNeediness = Math.max(this.pooNeediness - 100, 0);
         this.happiness = Math.min(this.happiness + 15, 100);
     }
 
