@@ -95,4 +95,17 @@ public class VirtualPetShelterTest {
 
         assertFalse(false);
     }
+
+    @Test public void testCleanLitterBox() {
+        OrganicCat cat = new OrganicCat("Nebula", "A cat that stares at the stars.");
+        shelter.petAdmitted(cat);
+
+        cat.setWaste(10);
+
+        assertEquals(10, shelter.totalingLitterBox());
+
+        shelter.cleanLitterBox();
+
+        assertEquals(0, shelter.totalingLitterBox());
+    }
 }
