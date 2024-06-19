@@ -114,7 +114,7 @@ public class OrganicDog extends OrganicPet implements Dog {
             conditions = 5;
         } else if (this.boredom < 25 || this.health < 25) {
             conditions = 5;
-        } else if (this.boredom < 50 || this.health < 50) {
+        } else if (this.health < 50) {
             conditions = 2;
         }
         this.happiness = Math.max(this.happiness - conditions, 0);
