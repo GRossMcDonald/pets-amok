@@ -44,7 +44,7 @@ public class VirtualPetShelterApp {
             System.out.println("Press (3) to play with a pet.");
             System.out.println("Press (4) to adopt a pet from the shelter.");
             System.out.println("Press (5) to admit a new pet.");
-            System.out.println("Press (6) to clean an organic dog's cage.");
+            System.out.println("Press (6) to clean an organic pets's cage.");
             System.out.println("Press (7) to walk all dogs.");
             System.out.println("Press (8) to oil all robotic pets.");
             System.out.println("Press (9) to perform maintenance on all robotic pets.");
