@@ -27,6 +27,10 @@ public class VirtualPetShelterApp {
             System.out.println(shelter.totalingLitterBox());
             System.out.println();
 
+            System.out.println("Organic Bird Status:");
+            shelter.displayOrganicBirdStats();
+            System.out.println();
+
             System.out.println("Robotic Dog Status:");
             shelter.displayRoboticDogStats();
             System.out.println();
@@ -98,8 +102,9 @@ public class VirtualPetShelterApp {
                 System.out.println();
                 System.out.println("Press (1) to admit an organic dog.");
                 System.out.println("Press (2) to admit an organic cat.");
-                System.out.println("Press (3) to admit a robotic dog.");
-                System.out.println("Press (4) to admit a robotic cat.");
+                System.out.println("Press (3) to admit an organic bird.");
+                System.out.println("Press (4) to admit a robotic dog.");
+                System.out.println("Press (5) to admit a robotic cat.");
 
                 int userChoice = input.nextInt();
                 input.nextLine();
@@ -139,11 +144,24 @@ public class VirtualPetShelterApp {
                     System.out.println("Give " + newName + " a description:");
                     String newDescription = input.nextLine();
 
-                    RoboticDog newPet = new RoboticDog(newName, newDescription);
+                    OrganicBird newPet = new OrganicBird(newName, newDescription);
                     shelter.petAdmitted(newPet);
                     System.out.println();
                     System.out.println("You have admitted " + newName + " to the shelter.");
                 } else if (userChoice == 4) {
+                    System.out.println();
+                    System.out.println("Enter the name of the new pet:");
+                    String newName = input.nextLine();
+
+                    System.out.println();
+                    System.out.println("Give " + newName + " a description:");
+                    String newDescription = input.nextLine();
+
+                    RoboticDog newPet = new RoboticDog(newName, newDescription);
+                    shelter.petAdmitted(newPet);
+                    System.out.println();
+                    System.out.println("You have admitted " + newName + " to the shelter.");
+                } else if (userChoice == 5) {
                     System.out.println();
                     System.out.println("Enter the name of the new pet:");
                     String newName = input.nextLine();
@@ -162,15 +180,15 @@ public class VirtualPetShelterApp {
                 }
             } else if (userInput == 6) {
                 while (true) {
-                    System.out.println("Which organic dog cage would you like to clean?");
+                    System.out.println("Which organic dog or bird cage would you like to clean?");
                     String chosenPet = input.nextLine();
                     System.out.println();
-                    if (shelter.cleanDogCage(chosenPet)) {
+                    if (shelter.cleanCage(chosenPet)) {
                         System.out.println("Okay, you clean " + chosenPet + "'s cage.");
                         System.out.println();
                         break;
                     } else {
-                        System.out.println("No organic dogs in this shelter go by that name. You idiot. Try again.");
+                        System.out.println("No organic pets in this shelter go by that name. You idiot. Try again.");
                     }
                 }
             } else if (userInput == 7) {

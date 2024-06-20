@@ -96,7 +96,6 @@ public class VirtualPetShelter {
         }
     }
 
-    
     public void oilPets() {
         for (VirtualPet pet : this.pets) {
             if (pet.getType().equals("Robotic")) {
@@ -111,7 +110,6 @@ public class VirtualPetShelter {
         }
     }
 
-        
     public void maintainPets() {
         for (VirtualPet pet : this.pets) {
             if (pet.getType().equals("Robotic")) {
@@ -136,13 +134,21 @@ public class VirtualPetShelter {
         return false;
     }
 
-    public boolean cleanDogCage(String name) {
+    public boolean cleanCage(String name) {
         for (VirtualPet pet : this.pets) {
-            if (pet.getType().equals("Organic") && pet.getSpecies().equals("Dog")) {
-                OrganicDog organicDog = (OrganicDog) pet;
-                if (organicDog.getName().equalsIgnoreCase(name)) {
-                    organicDog.cleanCage();
-                    return true;
+            if (pet.getType().equals("Organic")) {
+                if (pet.getSpecies().equals("Dog")) {
+                    OrganicDog organicDog = (OrganicDog) pet;
+                    if (organicDog.getName().equalsIgnoreCase(name)) {
+                        organicDog.cleanCage();
+                        return true;
+                    }
+                } else if (pet.getSpecies().equals("Bird")) {
+                    OrganicBird organicBird = (OrganicBird) pet;
+                    if (organicBird.getName().equalsIgnoreCase(name)) {
+                        organicBird.cleanCage();
+                        return true;
+                    }
                 }
             }
         }
@@ -218,6 +224,12 @@ public class VirtualPetShelter {
                     organicDog.sadnessIndex();
                     organicDog.happinessIndex();
                     organicDog.organicDogTick();
+                } else if (pet.getSpecies().equals("Bird")) {
+                    OrganicBird organicBird = (OrganicBird) pet;
+                    organicBird.poorHealthCheck();
+                    organicBird.sadnessIndex();
+                    organicBird.happinessIndex();
+                    organicBird.organicBirdTick();
                 }
             } else if (pet.getType().equals("Robotic")) {
                 if (pet.getSpecies().equals("Cat")) {
@@ -300,6 +312,37 @@ public class VirtualPetShelter {
         }
     }
 
+    public void displayOrganicBirdStats() {
+        int longestNameLength = 0;
+        for (VirtualPet pet : pets) {
+            if (pet.getType().equals("Organic") && pet.getSpecies().equals("Bird")) {
+                OrganicBird organicBird = (OrganicBird) pet;
+                if (organicBird.getName().length() > longestNameLength) {
+                    longestNameLength = organicBird.getName().length();
+                }
+            }
+        }
+        System.out.printf("%-" + (longestNameLength + 2)
+                + "s|Happiness |Health |Boredom |Hunger |Thirst |Cleanliness %n", "Name");
+        System.out.printf(
+                "%-" + (longestNameLength + 2)
+                        + "s|----------|-------|--------|-------|-------|------------%n",
+                "-".repeat(longestNameLength + 2));
+        for (VirtualPet pet : pets) {
+            if (pet.getType().equals("Organic") && pet.getSpecies().equals("Bird")) {
+                OrganicBird organicBird = (OrganicBird) pet;
+                System.out.printf("%-" + (longestNameLength + 2) + "s|%-10d|%-7d|%-8d|%-7d|%-7d|%-12d%n",
+                        organicBird.getName(),
+                        organicBird.getHappiness(),
+                        organicBird.getHealth(),
+                        organicBird.getBoredom(),
+                        organicBird.getHunger(),
+                        organicBird.getThirst(),
+                        organicBird.getCleanliness());
+            }
+        }
+    }
+
     public void displayRoboticDogStats() {
         int longestNameLength = 0;
         for (VirtualPet pet : pets) {
@@ -350,12 +393,12 @@ public class VirtualPetShelter {
             if (pet.getType().equals("Robotic") && pet.getSpecies().equals("Cat")) {
                 RoboticCat roboticCat = (RoboticCat) pet;
                 System.out.printf("%-" + (longestNameLength + 2) + "s|%-10d|%-7d|%-8d|%-5d|%-9d%n",
-                roboticCat.getName(),
-                roboticCat.getHappiness(),
-                roboticCat.getHealth(),
-                roboticCat.getBoredom(),
-                roboticCat.getOil(),
-                roboticCat.getMaintain());
+                        roboticCat.getName(),
+                        roboticCat.getHappiness(),
+                        roboticCat.getHealth(),
+                        roboticCat.getBoredom(),
+                        roboticCat.getOil(),
+                        roboticCat.getMaintain());
             }
         }
     }
