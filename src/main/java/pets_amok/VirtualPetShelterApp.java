@@ -71,6 +71,7 @@ public class VirtualPetShelterApp {
                         break;
                     } else {
                         System.out.println("No pets in this shelter go by that name. You idiot. Try again.");
+                        // Infinite loop is user continues to try a name that doesn't exist.
                     }
                 }
             } else if (userInput == 4) {
@@ -109,7 +110,7 @@ public class VirtualPetShelterApp {
                 int userChoice = input.nextInt();
                 input.nextLine();
 
-                if (userChoice == 1){
+                if (userChoice == 1) {
                     System.out.println();
                     System.out.println("Enter the name of the new pet:");
                     String newName = input.nextLine();

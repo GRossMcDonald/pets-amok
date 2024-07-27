@@ -150,5 +150,4 @@ public class OrganicDog extends OrganicPet implements Dog {
         this.pooNeediness = Math.max(this.pooNeediness - 100, 0);
         this.happiness = Math.min(this.happiness + 15, 100);
     }
-
 }
